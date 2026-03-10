@@ -18,23 +18,6 @@
       overflow-x:hidden;
     }
 
-    /* Cursor Halo */
-    .cursor-halo {
-      position:fixed;
-      top:0;
-      left:0;
-      width:40px;
-      height:40px;
-      pointer-events:none;
-      border-radius:50%;
-      background:radial-gradient(circle, #d4fff1 40%, #fff9d6 100%);
-      filter:blur(12px);
-      opacity:0.6;
-      transform:translate(-50%, -50%);
-      transition:transform 0.12s ease-out;
-      z-index:9999;
-    }
-
     /* HEADER */
     header {
       padding:140px 20px 160px;
@@ -116,30 +99,36 @@
       color:#1a1a1a;
     }
 
-    /* Asymmetric pastel blocks */
-    .block-left, .block-right {
+    /* Gradient blocks (Option A: same colors, different angles) */
+    .block {
       padding:40px;
       border-radius:20px;
       box-shadow:0 0 40px rgba(0,0,0,0.05);
-      transform:rotate(-1deg);
       opacity:0;
       animation:popIn 1s ease forwards;
+      background-size:200% 200%;
     }
 
-    .block-left {
-      background:#f7d9d9;
-      margin-right:120px;
+    .about-block {
+      background:linear-gradient(135deg, #d4fff1, #fff9d6);
     }
 
-    .block-right {
-      background:#dcd6f7;
-      margin-left:120px;
+    .music-block {
+      background:linear-gradient(90deg, #d4fff1, #fff9d6);
     }
 
-    /* Pop-in collage animation */
+    .whatsup-block {
+      background:linear-gradient(45deg, #d4fff1, #fff9d6);
+    }
+
+    .contact-block {
+      background:linear-gradient(180deg, #d4fff1, #fff9d6);
+    }
+
+    /* Pop-in animation */
     @keyframes popIn {
-      0% { opacity:0; transform:scale(0.95) rotate(-2deg) translateY(20px); }
-      100% { opacity:1; transform:scale(1) rotate(-1deg) translateY(0); }
+      0% { opacity:0; transform:scale(0.95) translateY(20px); }
+      100% { opacity:1; transform:scale(1) translateY(0); }
     }
 
     /* Instagram Section */
@@ -170,28 +159,6 @@
       opacity:1;
     }
 
-    .insta-grid {
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:20px;
-    }
-
-    .insta-grid img {
-      width:100%;
-      border-radius:16px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.08);
-      object-fit:cover;
-      aspect-ratio:1/1;
-      transition:0.3s;
-      transform:rotate(-1deg);
-      opacity:0;
-      animation:popIn 1s ease forwards;
-    }
-
-    .insta-grid img:hover {
-      transform:scale(1.03) rotate(0deg);
-    }
-
     footer {
       text-align:center;
       padding:60px 20px;
@@ -202,8 +169,6 @@
 </head>
 
 <body>
-
-<div class="cursor-halo"></div>
 
 <header>
   <div class="blob"></div>
@@ -223,7 +188,7 @@
 </header>
 
 <section id="about">
-  <div class="block-left">
+  <div class="block about-block">
     <h3>about</h3>
     <p>
       broeki drifts between dream‑pop, soft electronics, and pastel‑washed melancholy.
@@ -234,7 +199,7 @@
 </section>
 
 <section id="music">
-  <div class="block-right">
+  <div class="block music-block">
     <h3>music</h3>
 
     <iframe 
@@ -245,7 +210,7 @@
 </section>
 
 <section id="whatsup">
-  <div class="block-left">
+  <div class="block whatsup-block">
     <h3>what is going on</h3>
 
     <p><strong>new single coming soon</strong> — pastel dream pop in progress</p>
@@ -262,18 +227,19 @@
     <a href="https://www.instagram.com/broekimusic_hun/" target="_blank">@broekimusic_hun</a>
   </div>
 
-  <div class="insta-grid">
-    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d">
-    <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2">
-    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4">
-    <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063">
-    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f">
-    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2">
-  </div>
+  <!-- Live Instagram Feed -->
+  <!-- LightWidget WIDGET -->
+  <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+  <iframe src="//lightwidget.com/widgets/1f9ba64c647d57c19cbd756296686a84.html"
+          scrolling="no"
+          allowtransparency="true"
+          class="lightwidget-widget"
+          style="width:100%;border:0;overflow:hidden;">
+  </iframe>
 </section>
 
 <section id="contact">
-  <div class="block-right">
+  <div class="block contact-block">
     <h3>contact</h3>
     <p>For booking, press, or collaborations:</p>
     <p><strong>your-email-here@example.com</strong></p>
@@ -283,14 +249,6 @@
 <footer>
   © broeki — pastel dreams in motion
 </footer>
-
-<script>
-  /* Cursor Halo Movement */
-  const halo = document.querySelector('.cursor-halo');
-  document.addEventListener('mousemove', (e) => {
-    halo.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-  });
-</script>
 
 </body>
 </html>
