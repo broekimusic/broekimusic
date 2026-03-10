@@ -99,15 +99,22 @@
       color:#1a1a1a;
     }
 
-    /* Warm grey gradient tiles (Option A) */
+    /* Grey-mint gradient tiles with bold offsets */
     .block {
       padding:40px;
       border-radius:20px;
       box-shadow:0 0 40px rgba(0,0,0,0.05);
       opacity:0;
       animation:popIn 1s ease forwards;
-      background:linear-gradient(135deg, #f2f2f2, #e6e6e6);
+      background:linear-gradient(135deg, #e2e2e2, #cfcfcf 65%, #e9fff5 100%);
+      position:relative;
     }
+
+    .about-block { left:-60px; }
+    .music-block { right:-70px; }
+    .whatsup-block { left:-50px; }
+    .socials-block { right:-60px; }
+    .contact-block { top:-20px; }
 
     /* Pop-in animation */
     @keyframes popIn {
@@ -120,23 +127,26 @@
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:20px;
+      gap:22px;
       margin-top:30px;
     }
 
     .social-item {
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:14px;
       font-size:1.2rem;
       font-weight:600;
       opacity:0.85;
       transition:0.2s;
     }
 
-    .social-item img {
+    .social-item svg {
       width:28px;
       height:28px;
+      stroke:#000;
+      stroke-width:2;
+      fill:none;
     }
 
     .social-item a {
@@ -178,7 +188,7 @@
 </header>
 
 <section id="about">
-  <div class="block">
+  <div class="block about-block">
     <h3>about</h3>
     <p>
       broeki drifts between dream‑pop, soft electronics, and pastel‑washed melancholy.
@@ -189,7 +199,7 @@
 </section>
 
 <section id="music">
-  <div class="block">
+  <div class="block music-block">
     <h3>music</h3>
 
     <iframe 
@@ -200,7 +210,7 @@
 </section>
 
 <section id="whatsup">
-  <div class="block">
+  <div class="block whatsup-block">
     <h3>what is going on</h3>
 
     <p><strong>new single coming soon</strong> — pastel dream pop in progress</p>
@@ -210,26 +220,36 @@
 </section>
 
 <section id="socials">
-  <div class="block">
+  <div class="block socials-block">
     <h3 style="text-align:center;">find broeki online</h3>
 
     <div class="social-list">
 
       <!-- Instagram -->
       <div class="social-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17" cy="7" r="1.2"></circle>
+        </svg>
         <a href="https://www.instagram.com/broekimusic_hun/" target="_blank">@broekimusic_hun</a>
       </div>
 
       <!-- YouTube -->
       <div class="social-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="7" width="18" height="10" rx="3"></rect>
+          <polygon points="10,9 16,12 10,15"></polygon>
+        </svg>
         <a href="https://www.youtube.com/@broki-cp3is" target="_blank">YouTube</a>
       </div>
 
       <!-- TikTok -->
       <div class="social-item">
-        <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/TikTok_logo.svg">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 7v10a4 4 0 1 0 4-4h-1"></path>
+          <path d="M14 4a4 4 0 0 0 4 4"></path>
+        </svg>
         <a href="https://www.tiktok.com/@broekimusic_hun" target="_blank">@broekimusic_hun</a>
       </div>
 
@@ -238,7 +258,7 @@
 </section>
 
 <section id="contact">
-  <div class="block">
+  <div class="block contact-block">
     <h3>contact</h3>
     <p>For booking, press, or collaborations:</p>
     <p><strong>your-email-here@example.com</strong></p>
