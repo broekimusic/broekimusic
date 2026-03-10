@@ -51,7 +51,7 @@
       margin:0;
       font-size:4.5rem;
       letter-spacing:0.1em;
-      text-transform:lowercase;
+      text-transform:uppercase; /* UPDATED */
       position:relative;
       z-index:2;
       color:#1a1a1a;
@@ -110,11 +110,12 @@
       position:relative;
     }
 
-    .about-block { left:-60px; }
-    .music-block { right:-70px; }
-    .whatsup-block { left:-50px; }
-    .socials-block { right:-60px; }
-    .contact-block { top:-20px; }
+    /* Responsive offsets using vw */
+    .about-block { left:-6vw; }
+    .music-block { right:-7vw; }
+    .whatsup-block { left:-5vw; }
+    .socials-block { right:-6vw; }
+    .contact-block { top:-2vw; }
 
     /* Pop-in animation */
     @keyframes popIn {
@@ -165,11 +166,23 @@
       color:#777;
       font-size:0.9rem;
     }
+
+    /* Optional tiny-screen refinement */
+    @media (max-width: 400px) {
+      .about-block,
+      .music-block,
+      .whatsup-block,
+      .socials-block,
+      .contact-block {
+        left:-3vw !important;
+        right:-3vw !important;
+        top:-1vw !important;
+      }
+    }
   </style>
 </head>
 
 <body>
-
 
 <header>
   <div class="blob"></div>
